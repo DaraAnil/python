@@ -6,6 +6,8 @@ class Employee(Document):
     empId = fields.StringField(max_length=10, required=True, null=False)
     empName = fields.StringField(max_length=100, required = True)
     workLocation = fields.StringField(max_length=100, required =False)
+    projects = fields.EmbeddedDocumentListField(Project)
+    skills = fields.EmbeddedDocumentListField(Skill)
 
 class Project(EmbeddedDocument):
     projectId = fields.StringField(max_length=10, required=True, null=False)
